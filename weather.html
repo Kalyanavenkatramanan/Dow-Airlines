@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DowAirlines</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Weather</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://getwallpapers.com/wallpaper/full/f/6/1/1360362-vertical-airplane-wallpaper-hd-1920x1200-for-1080p.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .weather-container {
+             width: 40%; 
+             padding: 15px; 
+             background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+}
+
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        input, button {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            width: calc(100% - 22px);
+        }
+
+        button {
+            background-color: #2f18e1;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #220e08;
+        }
+    </style>
+</head>
+<body>
+    <div class="weather-container">
+        <h1 style="color: aliceblue;">Check Weather for Your City</h1>
+        <form id="weather-form">
+            <input type="text" id="city" name="city" placeholder="Enter city" required>
+            <button type="button" onclick="showWeather()">Check Weather</button>
+        </form>
+    </div>
+
+    <script>
+        function showWeather() {
+            var city = document.getElementById('city').value;
+            
+            var weatherData = {
+                'Chennai': 'Clear sky, 25°C',
+                'Coimbatore': 'Sunny, 30°C',
+                'Trichy': 'Overcast, 20°C',
+                'Tanjore': 'Humid, 28°C',
+                'Bangalore': 'Showers, 26°C'
+            };
+
+            var result = weatherData[city] || 'Weather data not available for this city.';
+            localStorage.setItem('weatherResult', result);  
+            window.location.href = 'weather-results.html';  
+        }
+    </script>
+</body>
+</html>

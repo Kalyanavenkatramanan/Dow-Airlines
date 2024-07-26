@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DowAirlines</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Page</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://getwallpapers.com/wallpaper/full/f/6/1/1360362-vertical-airplane-wallpaper-hd-1920x1200-for-1080p.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .payment-container {
+            width: 80%;
+            max-width: 600px; 
+            margin: 100px auto; 
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+
+        h2 {
+            color: #fff;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input, select {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: calc(100% - 22px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .payment-details {
+            display: none;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #1512df;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background-color: #0d0f0d;
+        }
+    </style>
+</head>
+<body>
+    <div class="payment-container">
+        <h2>Payment Information</h2>
+        <p id="amount-info"></p>
+        <form id="payment-form">
+            <input type="hidden" id="flightId" name="flightId">
+            <input type="hidden" id="price" name="price">
+            <input type="hidden" id="from" name="from">
+            <input type="hidden" id="to" name="to">
+            <input type="hidden" id="airline" name="airline">
+            <input type="hidden" id="name" name="name">
+            <input type="hidden" id="email" name="email">
+            <input type="hidden" id="phone" name="phone">
+            <input type="hidden" id="travel-date" name="travel-date">
+            <input type="hidden" id="passengers" name="passengers">
+
+            <label for="payment-method">Payment Method:</label>
+            <select id="payment-method" name="payment-method" required>
+                <option value="" disabled selected>Select Payment Method</option>
+                <option value="upi">UPI</option>
+                <option value="netbanking">Net Banking</option>
+            </select>
+
+            <div id="upi-details" class="payment-details">
+                <label for="upi-id">UPI ID:</label>
+                <input type="text" id="upi-id" name="upi-id" placeholder="example@upi" required>
+            </div>
+
+            <div id="netbanking-details" class="payment-details">
+                <label for="bank-name">Bank Name:</label>
+                <input type="text" id="bank-name" name="bank-name" required>
+
+                <label for="account-number">Account Number:</label>
+                <input type="text" id="account-number" name="account-number" required>
+
+                <label for="ifsc-code">IFSC Code:</label>
+                <input type="text" id="ifsc-code" name="ifsc-code" required>
+            </div>
+
+            <button type="button" class="submit-btn" onclick="submitForm()">Pay Now</button>
+        </form>
+    </div>
+
+    <script>
+        function getUrlParameter(name) {
+            name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+            var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+            var results = regex.exec(location.search);
+            return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+        }
+
+        document.getElementById('flightId').value = getUrlParameter('flightId');
+        document.getElementById('price').value = getUrlParameter('price');
+        document.getElementById('from').value = getUrlParameter('from');
+        document.getElementById('to').value = getUrlParameter('to');
+        document.getElementById('airline').value = getUrlParameter('airline');
+        document.getElementById('name').value = getUrlParameter('name');
+        document.getElementById('email').value = getUrlParameter('email');
+        document.getElementById('phone').value = getUrlParameter('phone');
+        document.getElementById('travel-date').value = getUrlParameter('travel-date');
+        document.getElementById('passengers').value = getUrlParameter('passengers');
+
+        document.getElementById('amount-info').innerHTML = 'Please pay the amount of ' + getUrlParameter('price');
+
+        document.getElementById('payment-method').addEventListener('change', function() {
+            var method = this.value;
+            document.getElementById('upi-details').style.display = method === 'upi' ? 'block' : 'none';
+            document.getElementById('netbanking-details').style.display = method === 'netbanking' ? 'block' : 'none';
+        });
+
+        function submitForm() {
+            var form = document.getElementById('payment-form');
+            var params = new URLSearchParams(new FormData(form)).toString();
+            window.location.href = 'confirmation.html?' + params;
+        }
+    </script>
+</body>
+</html>

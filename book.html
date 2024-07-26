@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DowAirlines</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://getwallpapers.com/wallpaper/full/f/6/1/1360362-vertical-airplane-wallpaper-hd-1920x1200-for-1080p.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .booking-container {
+            width: 30%;
+            margin: 50px auto;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+
+        h4 {
+            text-align: center;
+            color: #fff;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 7px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #000;
+        }
+
+        .submit-btn {
+            padding: 10px 20px;
+            background-color: #2f18e1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .submit-btn:hover {
+            background-color: #090a09;
+        }
+
+        p {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="booking-container">
+       
+        <form id="booking-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="from">From:</label>
+            <input type="text" id="from" name="from" required>
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required>
+
+            <label for="travel-date">Travel Date:</label>
+            <input type="date" id="travel-date" name="travel-date" required>
+
+            <label for="passengers">Number of Passengers:</label>
+            <input type="number" id="passengers" name="passengers" min="1" required>
+
+            <a id="book-now" class="submit-btn">Book Now</a>
+        </form>
+
+        <p>Thank you for booking with us! 
+            <a id="weather-link" href="weather.html">Check the weather for your flight</a> | 
+            <a id="delay-link" href="flight-delays.html">Check flight delays</a>.
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('book-now').addEventListener('click', function(event) {
+                event.preventDefault();
+                var from = encodeURIComponent(document.getElementById('from').value);
+                var destination = encodeURIComponent(document.getElementById('destination').value);
+                var travelDate = encodeURIComponent(document.getElementById('travel-date').value);
+                var name = encodeURIComponent(document.getElementById('name').value);
+                var email = encodeURIComponent(document.getElementById('email').value);
+                var phone = encodeURIComponent(document.getElementById('phone').value);
+                var passengers = encodeURIComponent(document.getElementById('passengers').value);
+
+                var url = 'search.html?from=' + from + '&destination=' + destination + '&date=' + travelDate + '&name=' + name + '&email=' + email + '&phone=' + phone + '&passengers=' + passengers;
+                window.location.href = url;
+            });
+
+            document.getElementById('destination').addEventListener('input', updateLinks);
+            document.getElementById('travel-date').addEventListener('input', updateLinks);
+
+            function updateLinks() {
+                var destination = encodeURIComponent(document.getElementById('destination').value);
+                var date = encodeURIComponent(document.getElementById('travel-date').value);
+
+                document.getElementById('weather-link').href = 'weather.html?destination=' + destination + '&date=' + date;
+                document.getElementById('delay-link').href = 'flight-delays.html?destination=' + destination + '&date=' + date;
+            }
+        });
+        
+    </script>
+</body>
+</html>

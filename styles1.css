@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-image: url('https://getwallpapers.com/wallpaper/full/f/6/1/1360362-vertical-airplane-wallpaper-hd-1920x1200-for-1080p.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+.about-page {
+    
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+   -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+}
+
+h1 {
+    color: whitesmoke;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+p {
+    color: whitesmoke;
+    line-height: 1.6;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 2rem;
+}
+
+.about-link {
+    display: block;
+    text-align: center;
+    margin-top: 2rem;
+    color: #E17676;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.about-link:hover {
+    text-decoration: underline;
+}

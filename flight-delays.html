@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DowAirlines</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Flight Delays</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://getwallpapers.com/wallpaper/full/f/6/1/1360362-vertical-airplane-wallpaper-hd-1920x1200-for-1080p.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .delay-container {
+            width: 40%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        input, button {
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            width: calc(100% - 22px);
+        }
+
+        button {
+            background-color: #2f18e1;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0a0b0a;
+        }
+    </style>
+</head>
+<body>
+    <div class="delay-container">
+        <h1 style="color: #ccc;">Check Flight Delays</h1>
+        <form id="delay-form">
+            <input type="text" id="flight-number" name="flight-number" placeholder="Enter flight number" required>
+            <button type="button" onclick="checkDelay()">Check Delay</button>
+        </form>
+    </div>
+
+    <script>
+        function checkDelay() {
+            var flightNumber = document.getElementById('flight-number').value;
+            // Simulated delay data
+            var delayData = {
+                'KD1612': 'No delays',
+                'SK1612': 'Delayed by 30 minutes',
+                'DK1612': 'Delayed by 1 hour',
+                'VJ1612': 'On time',
+                'D1612': 'Cancelled'
+            };
+
+            var result = delayData[flightNumber] || 'No delay information available for this flight number.';
+            localStorage.setItem('delayResult', result);  // Store result in local storage
+            window.location.href = 'flight-delay-results.html';  // Navigate to results page
+        }
+    </script>
+</body>
+</html>

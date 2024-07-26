@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DowAirlines</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Flights</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://getwallpapers.com/wallpaper/full/f/6/1/1360362-vertical-airplane-wallpaper-hd-1920x1200-for-1080p.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .search-container {
+            width: 40%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+
+        h4 {
+            text-align: center;
+            color: #333;
+        }
+
+        .flight-result {
+            margin-bottom: 20px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .flight-info {
+            margin-bottom: 10px;
+        }
+
+        .book-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2f18e1;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .book-link:hover {
+            background-color: #090a09;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <h2>Available Flights</h2>
+        
+        <div id="flight-results"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            const flights = [
+                { id: 1, airline: 'Delta', from: 'Chennai', to: 'Coimbatore', price: '$5000' },
+                { id: 2, airline: 'United', from: 'Coimbatore', to: 'Chennai', price: '$5000' },
+                { id: 3, airline: 'DreamWings', from: 'Tichy', to: 'Chennai', price: '$3000' },
+                { id: 4, airline: 'Deluxe', from: 'Bangalore', to: 'Chennai', price: '$7000' },
+                { id: 5, airline: 'Asian', from: 'Coimbatore', to: 'Bangalore', price: '$6000' },
+                { id: 6, airline: 'Deepsky', from: 'Bangalore', to: 'Coimbatore', price: '$6000' },
+                { id: 7, airline: 'Southwest', from: 'Chennai', to: 'Bangalore', price: '$7000' }
+            ];
+
+            function searchFlights(from, to) {
+                return flights.filter(flight => flight.from.toLowerCase() === from.toLowerCase() && flight.to.toLowerCase() === to.toLowerCase());
+            }
+
+            
+            const urlParams = new URLSearchParams(window.location.search);
+            const from = decodeURIComponent(urlParams.get('from'));
+            const destination = decodeURIComponent(urlParams.get('destination'));
+            const flightResults = searchFlights(from, destination);
+
+           
+            const resultsContainer = document.getElementById('flight-results');
+            if (flightResults.length > 0) {
+                flightResults.forEach(flight => {
+                    const flightElement = document.createElement('div');
+                    flightElement.className = 'flight-result';
+                    flightElement.innerHTML = `
+                        <div class="flight-info"><strong>Airline:</strong> ${flight.airline}</div>
+                        <div class="flight-info"><strong>From:</strong> ${flight.from}</div>
+                        <div class="flight-info"><strong>To:</strong> ${flight.to}</div>
+                        <div class="flight-info"><strong>Price:</strong> ${flight.price}</div>
+                        <a class="book-link" href="pay.html?flightId=${flight.id}&price=${encodeURIComponent(flight.price)}">Book Now</a>
+                    `;
+                    resultsContainer.appendChild(flightElement);
+                });
+            } else {
+                resultsContainer.innerHTML = '<p>No flights found for the given route.</p>';
+            }
+        });
+    </script>
+</body>
+</html>

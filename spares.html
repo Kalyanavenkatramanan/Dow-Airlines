@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DowAirlines</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheapest Fares</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://getwallpapers.com/wallpaper/full/f/6/1/1360362-vertical-airplane-wallpaper-hd-1920x1200-for-1080p.jpg') no-repeat center center fixed;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.8); 
+            border-radius: 10px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px); 
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .info h3 {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .book-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .book-btn:hover {
+            background-color: #0a0a0b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Cheapest Fares From</h2>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://i.pinimg.com/originals/cb/35/b2/cb35b24d4379c9b25a3f0e53cf3b938b.jpg" alt="Gwalior, Madhya Pradesh">
+                <div class="info">
+                    <h3>Gwalior, Madhya Pradesh</h3>
+                    <p>Wed, 31 Jul</p>
+                    <p class="price">₹1,195 onwards</p>
+                    <a href="booking.html?destination=Gwalior,%20Madhya%20Pradesh&date=Wed,%2031%20Jul&price=₹1,195%20onwards" class="book-btn">Book Flight</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0f/0c/9d/ca/gurudwara-complex-decked.jpg?w=1000&h=600&s=1" alt="Bathinda, Punjab">
+                <div class="info">
+                    <h3>Bathinda, Punjab</h3>
+                    <p>Mon, 05 Aug</p>
+                    <p class="price">₹1,260 onwards</p>
+                    <a href="booking.html?destination=Bathinda,%20Punjab&date=Mon,%2005%20Aug&price=₹1,260%20onwards" class="book-btn">Book Flight</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://th.bing.com/th/id/R.5f7b6266d061a93aa1db74a4992ea66b?rik=PVnLbDBOWwujHQ&riu=http%3a%2f%2famazingindiablog.in%2fwp-content%2fuploads%2f2016%2f09%2fJal-Mahal-Night-View.jpg&ehk=FV2faf6p7VkfPW6VOpbl1Fp5OXUeQ2uyjplEsPkk3Uc%3d&risl=&pid=ImgRaw&r=0" alt="Jaipur, Rajasthan">
+                <div class="info">
+                    <h3>Jaipur, Rajasthan</h3>
+                    <p>Sun, 06 Oct</p>
+                    <p class="price">₹1,334 onwards</p>
+                    <a href="booking.html?destination=Jaipur,%20Rajasthan&date=Sun,%2006%20Oct&price=₹1,334%20onwards" class="book-btn">Book Flight</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://www.fabhotels.com/blog/wp-content/uploads/2019/04/Tapovan1.jpg" alt="Dehradun, Uttarakhand">
+                <div class="info">
+                    <h3>Dehradun, Uttarakhand</h3>
+                    <p>Thu, 10 Oct</p>
+                    <p class="price">₹1,543 onwards</p>
+                    <a href="booking.html?destination=Dehradun,%20Uttarakhand&date=Thu,%2010%20Oct&price=₹1,543%20onwards" class="book-btn">Book Flight</a>
+                </div>
+                
+            </div>
+            <div class="card">
+                <img src="https://wallpapercave.com/wp/wp6736680.jpg" alt="Udaipur, Rajasthan">
+                <div class="info">
+                    <h3>Udaipur, Rajasthan</h3>
+                    <p>Mon, 09 Sep</p>
+                    <p class="price">₹2,174 onwards</p>
+                    <a href="booking.html?destination=Udaipur,%20Rajasthan&date=Mon,%2009%20Sep&price=₹2,174%20onwards" class="book-btn">Book Flight</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://th.bing.com/th/id/R.c4aa12965a2f6a96d3266caf21a1398f?rik=HovqLmG%2bx3y%2bfw&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fwp1927723.jpg&ehk=0gfTYOcBPmNM1lRDOTEOM5Z9jlsPTiKtwke8l0n7PmM%3d&risl=&pid=ImgRaw&r=0" alt="Udaipur, Rajasthan">
+                <div class="info">
+                    <h3>Agra,UttarPradesh</h3>
+                    <p>Mon, 09 Sep</p>
+                    <p class="price">₹2,174 onwards</p>
+                    <a href="booking.html?destination=Agra,%20Uttar%20Pradesh&date=Mon,%2009%20Sep&price=₹2,174%20onwards" class="book-btn">Book Flight</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://wallpapercave.com/wp/wp5392742.png" alt="Ooty, TamilNadu">
+                <div class="info">
+                    <h3>Ooty,TamilNadu</h3>
+                    <p>Mon, 09 Sep</p>
+                    <p class="price">₹2,174 onwards</p>
+                    <a href="booking.html?destination=Ooty,%20Tamil%20Nadu&date=Mon,%2009%20Sep&price=₹2,174%20onwards" class="book-btn">Book Flight</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://wallpapercave.com/wp/wp6733707.jpg" alt="Munnar, Kerala">
+                <div class="info">
+                    <h3>Munnar,Kerala</h3>
+                    <p>Mon, 09 Sep</p>
+                    <p class="price">₹2,174 onwards</p>
+                    <a href="booking.html?destination=Munnar,%20Kerala&date=Mon,%2009%20Sep&price=₹2,174%20onwards" class="book-btn">Book Flight</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://www.re-thinkingthefuture.com/wp-content/uploads/2019/02/A-Marvel-of-Dravidian-Architecture-The-Brihadeeswara-temple.jpg" alt="Tanjore, TamilNadu">
+                <div class="info">
+                    <h3>Tanjore,TamilNadu</h3>
+                    <p>Mon, 09 Sep</p>
+                    <p class="price">₹2,174 onwards</p>
+                    <a href="booking.html?destination=Tanjore,%20Tamil%20Nadu&date=Mon,%2009%20Sep&price=₹2,174%20onwards" class="book-btn">Book Flight</a>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://wallpapercave.com/wp/wp4527557.jpg" alt="Leh-Ladakh, Jammu and Kashmir">
+                <div class="info">
+                    <h3>Leh-Ladakh,Jammu and Kashmir</h3>
+                    <p>Mon, 09 Sep</p>
+                    <p class="price">₹2,174 onwards</p>
+                    <a href="booking.html?destination=Leh-Ladakh,%20Jammu%20and%20Kashmir&date=Mon,%2009%20Sep&price=₹2,174%20onwards" class="book-btn">Book Flight</a>
+            
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://thetravelshots.com/wp-content/uploads/2020/10/darjeeling.jpg" alt="Darjeeling, West Bengal">
+                <div class="info">
+                    <h3>Darjeeling,West Bengal</h3>
+                    <p>Mon, 09 Sep</p>
+                    <p class="price">₹2,174 onwards</p>
+                    <a href="booking.html?destination=Darjeeling,%20West%20Bengal&date=Mon,%2009%20Sep&price=₹2,174%20onwards" class="book-btn">Book Flight</a>
+                </div>
+                
+            </div>
+            <div class="card">
+                <img src="https://img.traveltriangle.com/blog/wp-content/uploads/2020/03/shillong.jpg" alt="Shillong,Meghalaya">
+                <div class="info">
+                    <h3>Shillong,Meghalaya</h3>
+                    <p>Mon, 09 Sep</p>
+                    <p class="price">₹2,174 onwards</p>
+                    <a href="booking.html?destination=Shillong,%20Meghalaya&date=Mon,%2009%20Sep&price=₹2,174%20onwards" class="book-btn">Book Flight</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

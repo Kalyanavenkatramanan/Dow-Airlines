@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>DowAirlines</title>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Delay Results</title>
+    <link rel="icon" href="logo.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background-image: url('https://getwallpapers.com/wallpaper/full/f/6/1/1360362-vertical-airplane-wallpaper-hd-1920x1200-for-1080p.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff;
+        }
+
+        .results-container {
+            width: 30%;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .delay-info {
+            margin-top: 20px;
+        }
+
+        .error {
+            color: red;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #2f18e1;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #101210;
+        }
+    </style>
+</head>
+<body>
+    <div class="results-container">
+        <h1>Flight Delay Results</h1>
+        <div id="delay-info" class="delay-info">
+            <!-- Delay information will be displayed here -->
+        </div>
+        <button onclick="window.history.back()">Go Back</button>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var result = localStorage.getItem('delayResult');
+            document.getElementById('delay-info').innerHTML = result ? result : 'No delay information available.';
+            localStorage.removeItem('delayResult');  // Clear result after displaying
+        });
+    </script>
+</body>
+</html>
